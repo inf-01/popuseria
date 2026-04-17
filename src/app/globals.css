@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+:root {
+  --background: #23272e;
+  --foreground: #e0e5ec;
+  --nickel-base: #2c313a;
+  --nickel-shadow-dark: #1b1e24;
+  --nickel-shadow-light: #3d4451;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 
+  Neumorphism Utility Classes 
+  Dark Nickel Matte Theme
+*/
+
+@layer utilities {
+  .neu-nickel-flat {
+    background: var(--nickel-base);
+    box-shadow: 12px 12px 24px var(--nickel-shadow-dark), -12px -12px 24px var(--nickel-shadow-light);
+  }
+
+  .neu-nickel-pressed {
+    background: var(--nickel-base);
+    box-shadow: inset 8px 8px 16px var(--nickel-shadow-dark), inset -8px -8px 16px var(--nickel-shadow-light);
+  }
+
+  .neu-nickel-convex {
+    background: linear-gradient(145deg, #2f343e, #282c34);
+    box-shadow: 8px 8px 16px var(--nickel-shadow-dark), -8px -8px 16px var(--nickel-shadow-light);
+  }
+
+  .neu-flat {
+    background: #E0E5EC;
+    box-shadow: 12px 12px 24px #BEC3C9, -12px -12px 24px #FFFFFF;
+  }
+
+  .neu-pressed {
+    background: #E0E5EC;
+    box-shadow: inset 8px 8px 16px #BEC3C9, inset -8px -8px 16px #FFFFFF;
+  }
+
+  .neu-button {
+    background: var(--nickel-base);
+    box-shadow: 4px 4px 8px var(--nickel-shadow-dark), -4px -4px 8px var(--nickel-shadow-light);
+    transition: all 0.2s ease-in-out;
+  }
+
+  .neu-button:active {
+    box-shadow: inset 3px 3px 6px var(--nickel-shadow-dark), inset -3px -3px 6px var(--nickel-shadow-light);
+  }
+}
