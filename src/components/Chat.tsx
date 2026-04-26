@@ -4,8 +4,13 @@ import { useChat } from 'ai/react';
 
 export default function ChatComponent() {
     const { messages, input, handleInputChange, handleSubmit, isLoading, error, reload } = useChat({
+        api: '/api/chat',
         onError: (err) => {
-            console.error("Chat error details:", err);
+            console.error("🔍 DETALLE DEL ERROR:", err);
+            // Intentar detectar si es un error de ruta (404)
+            if (err.message.includes('404')) {
+                console.error("❌ ERROR: La ruta /api/chat no fue encontrada. Revisa la estructura de carpetas.");
+            }
         }
     });
 
@@ -38,16 +43,10 @@ export default function ChatComponent() {
                     <div className="flex flex-col items-center justify-center p-6 text-center space-y-4">
                         <div className="p-4 rounded-[20px] bg-red-50 text-red-600 border border-red-200 text-sm font-bold shadow-inner w-full">
                             ⚠️ Error de Conexión
-                            <div className="mt-2 text-[11px] font-medium bg-white/50 p-2 rounded-xl border border-red-100 overflow-hidden text-ellipsis">
-                                {(() => {
-                                    try {
-                                        const parsed = JSON.parse(error.message);
-                                        return parsed.error || error.message;
-                                    } catch {
-                                        return error.message || 'Error desconocido';
-                                    }
-                                })()}
+                            <div className="mt-2 text-[10px] font-mono bg-white/50 p-2 rounded-xl border border-red-100 break-all">
+                                {error.message || 'Error de conexión (Causa desconocida)'}
                             </div>
+                            <p className="text-[9px] mt-1 text-red-400">Verifica que /api/chat exista en tu GitHub</p>
                         </div>
                         <button
                             onClick={() => reload()}
