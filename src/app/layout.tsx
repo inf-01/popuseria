@@ -12,21 +12,24 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// URL ACTUAL EN NETLIFY
+const baseUrl = 'https://pupuseriacr.netlify.app';
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://crpupuseria.vercel.app'),
+  metadataBase: new URL(baseUrl),
   title: 'Pupusería | Pedidos Exclusivos',
-  description: 'Haz tus pedidos de deliciosas pupusas mixtas con curtido preparadas cada quincena.',
+  description: 'Haz tus pedidos de deliciosas pupusas mixtas preparadas cada quincena.',
   openGraph: {
     title: 'Pupusería - Especialidad en Mixtas',
-    description: 'Pide tus pupusas mixtas (Chicharrón, Queso y Frijoles) por solo ₡2,000. Recolección de pedidos abierta ahora.',
-    url: 'https://crpupuseria.vercel.app',
+    description: 'Pide tus pupusas mixtas (Chicharrón, Queso y Frijoles) por solo ₡2,000. ¡Haz tu pedido por chat!',
+    url: baseUrl,
     siteName: 'Pupusería El Salvador',
     images: [
       {
-        url: '/assets/logo_share.png',
+        url: `${baseUrl}/assets/logo_share.png`,
         width: 1200,
         height: 630,
-        alt: 'Pupusas Mixtas',
+        alt: 'Pupusería el Salvador',
       },
     ],
     locale: 'es_CR',
@@ -36,7 +39,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Pupusería | Pedidos Exclusivos',
     description: 'Pide tus pupusas mixtas por ₡2,000 vía chat neumórfico.',
-    images: ['/assets/logo_share.png'],
+    images: [`${baseUrl}/assets/logo_share.png`],
   },
 };
 
